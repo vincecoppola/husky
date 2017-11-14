@@ -5,7 +5,6 @@ const stripIndent = require('strip-indent')
 const pkg = require('../../package.json')
 
 function platformSpecific() {
-  // On OS X and Linux, try to use nvm if it's installed
   if (process.platform === 'win32') {
     // Add
     // Node standard installation path /c/Program Files/nodejs
@@ -27,10 +26,7 @@ function platformSpecific() {
         # Brew standard installation path /usr/local/bin
         # Node standard installation path /usr/local
         export PATH="$PATH:/usr/local/bin:/usr/local"
-
-        # Try to load nvm using path of standard installation
-        load_nvm ${home}/.nvm
-        run_nvm`
+      `
     )
 
     return arr.join('\n')
