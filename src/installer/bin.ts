@@ -14,7 +14,7 @@ const gitDir = path.resolve(stdout) // Needed to normalize path on Windows
 
 if (status !== 0) {
   console.log(stderr)
-  process.exit(1)
+  !isCI && process.exit(1)
 }
 
 // Run installer
